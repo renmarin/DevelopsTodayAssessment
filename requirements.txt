@@ -1,0 +1,6 @@
+Django==3.2.9
+psycopg2-binary==2.9.2
+djangorestframework==3.12.4
+black==21.10b0
+django-crontab==0.7.1
+flake8==4.0.1

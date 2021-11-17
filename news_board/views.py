@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from django.views import View
-from .models import News
+from .models import News, Meta
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .serializers import NewsSerializer, CommentsSerializer
+import time
+from .cron import my_scheduled_job
 
 # Create your views here.
 
@@ -19,6 +21,11 @@ class Index(View):
 
 @api_view(["GET"])
 def read_news(request):
+    date = Meta.objects.get(pk=1)
+    if date.day != time.strftime('%x'):
+        my_scheduled_job()
+        date.day = time.strftime('%x')
+        date.save()
     news = News.objects.all()
     serializer = NewsSerializer(news, many=True)
     return Response(serializer.data)

@@ -19,3 +19,7 @@ class Comments(models.Model):
     content = models.CharField(max_length=500)
     creation_date = models.DateTimeField()
     news_f = models.ForeignKey(News, on_delete=models.CASCADE)
+
+
+class Meta(models.Model):
+    day = models.CharField(max_length=50)

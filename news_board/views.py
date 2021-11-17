@@ -12,13 +12,14 @@ from .cron import my_scheduled_job
 
 class Index(View):
     
-    try:
-        date = Meta.objects.get(pk=1)
-    except ObjectDoesNotExist:
-        date = Meta(day=time.strftime("%x"))
-        date.save()
-    
     def get(self, request):
+        
+        try:
+            date = Meta.objects.get(pk=1)
+        except ObjectDoesNotExist:
+            date = Meta(day=time.strftime("%x"))
+            date.save()
+        
         self.news = News.objects.all()
         self.context = {
             "news": self.news,

@@ -80,7 +80,7 @@ At this point, your Django app should be running at port 8000 on your Docker hos
 
 3. Run "python manage.py migrate" to create the News Board API models.
 
-4. Visit http://127.0.0.1:8000/.
+4. Visit http://127.0.0.1:8000 **before accessing API**.
 
 ## Data
 This API uses JSON data format. Below are shown some examples of data.

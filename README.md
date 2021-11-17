@@ -3,6 +3,8 @@ A simple news board API
 
 Heroku deployment link: [News Board Api](https://news-board-api-786.herokuapp.com/).
 
+Postman collection link: https://www.getpostman.com/collections/e4799db5c7f8a0e012d5
+
 # Prerequisites
 On your machine should be installed Docker and  to create application's work environment. You can use Docker Desktop on Mac and Windows, for Linux you need to install Docker Engine and Docker Compose. Guide how to install it:
 https://docs.docker.com/get-started/#download-and-install-docker .

@@ -1,7 +1,7 @@
 # DevelopsTodayAssessment
 A simple news board API
 
-Heroku deployment link: [News Board Api](https://news-board-api-786.herokuapp.com/).
+Heroku deployment link: [News Board API](https://news-board-api-786.herokuapp.com/).
 
 Postman collection link: https://www.getpostman.com/collections/e4799db5c7f8a0e012d5
 

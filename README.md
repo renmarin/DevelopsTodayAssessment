@@ -1,6 +1,6 @@
 # DevelopsTodayAssessment
 A simple news board API
-Heroku Exemple: [News Board Api](https://news-board-api-786.herokuapp.com/).
+Heroku deployment link: [News Board Api](https://news-board-api-786.herokuapp.com/).
 
 # Prerequisites
 On your machine should be installed Docker and  to create application's work environment. You can use Docker Desktop on Mac and Windows, for Linux you need to install Docker Engine and Docker Compose. Guide how to install it:

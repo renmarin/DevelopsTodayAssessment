@@ -1,5 +1,6 @@
 # DevelopsTodayAssessment
 A simple news board API
+Heroku Exemple: [News Board Api](https://news-board-api-786.herokuapp.com/).
 
 # Prerequisites
 On your machine should be installed Docker and  to create application's work environment. You can use Docker Desktop on Mac and Windows, for Linux you need to install Docker Engine and Docker Compose. Guide how to install it:
@@ -7,6 +8,17 @@ https://docs.docker.com/get-started/#download-and-install-docker .
 
 # API list
 
+    http://127.0.0.1:8000/api/read                                                   - all news data
+    http://127.0.0.1:8000/api/read/<id>                                              - detail about news
+    http://127.0.0.1:8000/api/update/<id>                                            - update news
+    http://127.0.0.1:8000/api/delete/<id>                                            - delete news
+    http://127.0.0.1:8000/api/create                                                 - create new news
+    http://127.0.0.1:8000/api/read/<id>/comments                                     - read comments
+    http://127.0.0.1:8000/api/read/<id>/comments/create                              - create comment
+    http://127.0.0.1:8000/api/read/<id>/comments/<comment_id>                        - read one comment
+    http://127.0.0.1:8000/api/read/<id>/comments/<comment_id>/update                 - update comment
+    http://127.0.0.1:8000/api/read/<id>/comments/<comment_id>/delete                 - delete comment
+    http://127.0.0.1:8000/api/read/<id>/upvote                                       - upvote news
 
 # How to run it
 

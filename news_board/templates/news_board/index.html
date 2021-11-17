@@ -5,7 +5,7 @@
     <title>Hello There</title>
 </head>
 <br>
-    General Kenobi!
+    General Kenobi! <br>
     {% for item in news %}
         <a href="{{ item.link }}">{{ item.title }}</a> <br>
         {{ item.creation_date }} - Upvotes: {{ item.amount_of_upvotes }} <br>

@@ -30,6 +30,7 @@ def detail_news(request, pk):
     serializer = NewsSerializer(news, many=False)
     return Response(serializer.data)
 
+
 @api_view(["POST"])
 def create_news(request):
     serializer = NewsSerializer(data=request.data)
@@ -37,6 +38,7 @@ def create_news(request):
     if serializer.is_valid():
         serializer.save()
     return Response(serializer.data)
+
 
 @api_view(["POST"])
 def update_news(request, pk):
@@ -107,17 +109,25 @@ def delete_comment(request, pk, id):
 
 @api_view(["GET"])
 def upvote(request, pk):
+    request.session.set_expiry(86400)  # 24 hours
     news = News.objects.get(id=pk)
-    request.session["upvoted"] = request.session.get("upvoted", ['None',])
+    request.session["upvoted"] = request.session.get(
+        "upvoted",
+        [
+            "None",
+        ],
+    )
     if news.title in request.session["upvoted"]:
         serializer = NewsSerializer(news, many=False)
         return Response(serializer.data)
-    elif request.session["upvoted"] != 'None':
+    elif request.session["upvoted"] != "None":
         request.session["upvoted"].append(news.title)
         news.amount_of_upvotes += 1
         news.save()
     else:
-        request.session["upvoted"] = [news.title,]
+        request.session["upvoted"] = [
+            news.title,
+        ]
         news.amount_of_upvotes += 1
         news.save()
     serializer = NewsSerializer(news, many=False)

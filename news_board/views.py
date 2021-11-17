@@ -29,7 +29,7 @@ class Index(View):
 
 @api_view(["GET"])
 def read_news(request):
-    date = Meta.objects.get(pk=1)
+    date = Meta.objects.first()
     if date.day != time.strftime("%x"):
         my_scheduled_job()
         date.day = time.strftime("%x")

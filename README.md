@@ -65,6 +65,7 @@ At this point, your Django app should be running at port 8000 on your Docker hos
 
 1. Configure django setting **assessment/settings.py** like this::
 
+    ```
     INSTALLED_APPS = [
         ...
         'rest_framework',

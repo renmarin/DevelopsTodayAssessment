@@ -71,12 +71,12 @@ At this point, your Django app should be running at port 8000 on your Docker hos
         'news_board.apps.NewsBoardConfig',
     ]
     
-2. Include the spyfall URLconf in your project urls.py like this::
+2. Include the News Board API URLconf in your project urls.py like this::
 
     from django.urls import include
 
     path('', include('news_board.urls')),
 
-3. Run "python manage.py migrate" to create the spyfall models.
+3. Run "python manage.py migrate" to create the News Board API models.
 
 4. Visit http://127.0.0.1:8000/.

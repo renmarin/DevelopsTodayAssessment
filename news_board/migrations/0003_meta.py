@@ -6,15 +6,23 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('news_board', '0002_auto_20211116_1424'),
+        ("news_board", "0002_auto_20211116_1424"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Meta',
+            name="Meta",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('day', models.CharField(max_length=50)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("day", models.CharField(max_length=50)),
             ],
         ),
     ]

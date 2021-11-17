@@ -22,9 +22,9 @@ class Index(View):
 @api_view(["GET"])
 def read_news(request):
     date = Meta.objects.get(pk=1)
-    if date.day != time.strftime('%x'):
+    if date.day != time.strftime("%x"):
         my_scheduled_job()
-        date.day = time.strftime('%x')
+        date.day = time.strftime("%x")
         date.save()
     news = News.objects.all()
     serializer = NewsSerializer(news, many=True)

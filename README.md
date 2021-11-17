@@ -5,6 +5,9 @@ A simple news board API
 On your machine should be installed Docker and  to create application's work environment. You can use Docker Desktop on Mac and Windows, for Linux you need to install Docker Engine and Docker Compose. Guide how to install it:
 https://docs.docker.com/get-started/#download-and-install-docker .
 
+# API list
+
+
 # How to run it
 
 ## Create a Django project
@@ -37,46 +40,28 @@ https://docs.docker.com/get-started/#download-and-install-docker .
         }
 These settings are determined by the postgres Docker image specified in **docker-compose.yml**.
 
-4. Run the `docker-compose up` command from the top level directory for your project.
+4. Run the `sudo docker-compose up` command from the top level directory for your project.
 
 At this point, your Django app should be running at port 8000 on your Docker host. On Docker Desktop for Mac and Docker Desktop for Windows, go to http://localhost:8000
 
+5. Use `sudo docker exec -ti [your_container] bash` to connect to container's terminal.
 
+## Set up Django app
 
-
-
-
-
-
-
-1. Copy repository files to spyfall folder and put it into your django project.
-
-2. Configure django setting like this::
+1. Configure django setting **assessment/settings.py** like this::
 
     INSTALLED_APPS = [
         ...
-        'spyfall.apps.SpyfallConfig',
+        'rest_framework',
+        'news_board.apps.NewsBoardConfig',
     ]
     
-    DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'set_DB_name',
-        'USER': 'set_DB_user',
-        'PASSWORD': 'set_DB_password',
-        'HOST': '127.0.0.1',
-    }
-}
-
-3. Include the spyfall URLconf in your project urls.py like this::
+2. Include the spyfall URLconf in your project urls.py like this::
 
     from django.urls import include
 
-    path('spyfall/', include('spyfall.urls')),
+    path('', include('news_board.urls')),
 
-4. Run "python manage.py migrate" to create the spyfall models.
+3. Run "python manage.py migrate" to create the spyfall models.
 
-5. Start the development server "python manage.py runserver" and visit http://127.0.0.1:8000/admin/
-   to create a places and roles (you'll need the Admin app enabled).
-
-6. Visit http://127.0.0.1:8000/spyfall/ to play.
+4. Visit http://127.0.0.1:8000/.

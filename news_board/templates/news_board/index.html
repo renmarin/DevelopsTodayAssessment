@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>News</title>
+    <title>Hello There</title>
 </head>
 <br>
+    General Kenobi!
     {% for item in news %}
         <a href="{{ item.link }}">{{ item.title }}</a> <br>
         {{ item.creation_date }} - Upvotes: {{ item.amount_of_upvotes }} <br>

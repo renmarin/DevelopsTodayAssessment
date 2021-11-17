@@ -1,2 +1,82 @@
 # DevelopsTodayAssessment
 A simple news board API
+
+# Prerequisites
+On your machine should be installed Docker and  to create application's work environment. You can use Docker Desktop on Mac and Windows, for Linux you need to install Docker Engine and Docker Compose. Guide how to install it:
+https://docs.docker.com/get-started/#download-and-install-docker .
+
+# How to run it
+
+## Create a Django project
+
+1. Change to the root of your project directory.
+
+2. Create the Django project by running the **docker-compose run** command as follows.
+
+    `sudo docker-compose run web django-admin startproject assessment .`      
+
+3. After the docker-compose command completes, list the contents of your project. If you are running Docker on Linux, the files **django-admin** created are owned by root. This happens because the container runs as the root user. Change the ownership of the new files.
+
+      `sudo chown -R $USER:$USER .`
+
+## Connect the database
+
+1. In your project directory, edit the **assessment/settings.py** file.
+2. Replace the DATABASES = ... with the following:
+
+      ```# settings.py 
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.postgresql',
+                'NAME': 'postgres',
+                'USER': 'postgres',
+                'PASSWORD': 'postgres',
+                'HOST': 'db',
+                'PORT': 5432,
+            }
+        }
+These settings are determined by the postgres Docker image specified in **docker-compose.yml**.
+
+4. Run the `docker-compose up` command from the top level directory for your project.
+
+At this point, your Django app should be running at port 8000 on your Docker host. On Docker Desktop for Mac and Docker Desktop for Windows, go to http://localhost:8000
+
+
+
+
+
+
+
+
+
+1. Copy repository files to spyfall folder and put it into your django project.
+
+2. Configure django setting like this::
+
+    INSTALLED_APPS = [
+        ...
+        'spyfall.apps.SpyfallConfig',
+    ]
+    
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'set_DB_name',
+        'USER': 'set_DB_user',
+        'PASSWORD': 'set_DB_password',
+        'HOST': '127.0.0.1',
+    }
+}
+
+3. Include the spyfall URLconf in your project urls.py like this::
+
+    from django.urls import include
+
+    path('spyfall/', include('spyfall.urls')),
+
+4. Run "python manage.py migrate" to create the spyfall models.
+
+5. Start the development server "python manage.py runserver" and visit http://127.0.0.1:8000/admin/
+   to create a places and roles (you'll need the Admin app enabled).
+
+6. Visit http://127.0.0.1:8000/spyfall/ to play.

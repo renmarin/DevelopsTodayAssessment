@@ -1,4 +1,4 @@
-# DevelopsTodayAssessment
+# News Board API
 A simple news board API
 
 Heroku deployment link: [News Board API](https://news-board-api-786.herokuapp.com/).

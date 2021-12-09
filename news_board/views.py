@@ -4,6 +4,7 @@ from .models import News, Meta
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .serializers import NewsSerializer, CommentsSerializer
+from django.core.exceptions import ObjectDoesNotExist
 import time
 from .cron import my_scheduled_job
 

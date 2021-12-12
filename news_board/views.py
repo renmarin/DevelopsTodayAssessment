@@ -15,12 +15,6 @@ class Index(View):
     
     def get(self, request):
         
-        try:
-            date = Meta.objects.get(pk=1)
-        except ObjectDoesNotExist:
-            date = Meta(day=time.strftime("%x"))
-            date.save()
-        
         self.news = News.objects.all()
         self.context = {
             "news": self.news,
@@ -30,11 +24,6 @@ class Index(View):
 
 @api_view(["GET"])
 def read_news(request):
-    date = Meta.objects.first()
-    if date.day != time.strftime("%x"):
-        my_scheduled_job()
-        date.day = time.strftime("%x")
-        date.save()
     news = News.objects.all()
     serializer = NewsSerializer(news, many=True)
     return Response(serializer.data)

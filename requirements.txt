@@ -4,3 +4,6 @@ djangorestframework==3.12.4
 black==21.10b0
 django-crontab==0.7.1
 flake8==4.0.1
+redis==4.0.2
+celery==5.2.1
+django-celery-beat==2.2.1
